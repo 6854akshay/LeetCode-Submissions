@@ -6,16 +6,13 @@ class Solution
             int beg = 0, end = nums.size()-1, mid;
             while(beg<=end)
             {
-                mid = (beg + end)/2;
+                mid = beg + (end - beg)/2;
                 if (nums[mid] == target)
                     return mid;
+                else if (nums[mid] > target)
+                    end = mid-1;
                 else
-                {
-                    if (nums[mid] > target)
-                        end = mid-1;
-                    else
-                        beg = mid+1;
-                }
+                    beg = mid+1;
             }
             return -1;
         }
