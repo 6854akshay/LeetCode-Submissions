@@ -3,9 +3,7 @@ class Solution
     public:
         int minStartValue(vector<int>& nums)
         {
-            int val=0;
-            int sum=0;
-            int least = 0;
+            int sum=0, least = 0;
             for (auto i : nums)
             {
                 sum+=i;
