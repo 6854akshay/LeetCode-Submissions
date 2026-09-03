@@ -6,7 +6,7 @@ class Solution
             string s1="";
             for (auto i : s)
             {
-                if (i >= 'A' and i <= 'Z')
+                if (i >= 'A' && i <= 'Z')
                     s1.push_back(i + 32);
                 else
                     s1.push_back(i);
