@@ -14,6 +14,6 @@ class Solution
                 else
                     h = m - 1;
             }
-            return m;
+            return -1;
         }
 };
