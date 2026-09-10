@@ -3,13 +3,17 @@ class Solution
     public:
         int peakIndexInMountainArray(vector<int>& arr)
         {
-            int i,max = arr[0];
-            for (i = 1; i < arr.size(); i++)
+            int l = 1, h = arr.size()-2, m;
+            while (l <= h)
             {
-                if (arr[i] < max)
-                    return i-1;
-                max = arr[i];
+                m = l + (h - l)/2;
+                if (arr[m] > arr[m-1] && arr[m] > arr[m+1])
+                    return m;
+                else if (arr[m] > arr[m-1] && arr[m] < arr[m+1])
+                    l = m + 1;
+                else
+                    h = m - 1;
             }
-            return i-1;
+            return m;
         }
 };
