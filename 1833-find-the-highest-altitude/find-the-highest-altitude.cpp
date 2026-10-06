@@ -3,8 +3,7 @@ class Solution
     public:
         int largestAltitude(vector<int>& gain)
         {
-            int alt = 0;
-            int high = 0;
+            int alt = 0, high = 0;
             for (auto i : gain)
             {
                 alt+=i;
