@@ -1,18 +1,25 @@
 class Solution
 {
     public:
-        int numSubarraysWithSum(vector<int>& nums, int goal)
+        int maxSubarray(vector<int>&nums, int k)
         {
-            int count = 0, pre_sum = 0;
-            unordered_map<int,int> freq;
-            freq[0] = 1;
-            for (auto i : nums)
+            if (k < 0)
+                return 0;
+            int left = 0, right, curr_sum = 0, count = 0;
+            for (right = 0; right < nums.size(); ++right)
             {
-                pre_sum += i;
-                if (freq.find(pre_sum - goal) != freq.end())
-                    count = count + freq[pre_sum - goal];
-                freq[pre_sum]++;
+                curr_sum += nums[right];
+                while (curr_sum > k)
+                {
+                    curr_sum = curr_sum - nums[left];
+                    left++;
+                }
+                count += (right - left + 1);
             }
             return count;
+        }
+        int numSubarraysWithSum(vector<int>& nums, int goal)
+        {
+            return maxSubarray(nums, goal) - maxSubarray(nums, goal - 1);
         }
 };
