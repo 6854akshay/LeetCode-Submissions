@@ -1,17 +1,25 @@
-class Solution {
-public:
-    int smallestAbsent(vector<int>& nums) {
-        double sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-        double avg = sum / nums.size();
-        int count = 1;
-        while (true) {
-            if (count > avg && find(nums.begin(), nums.end(), count) == nums.end()) {
-                return count;
+class Solution
+{
+    public:
+        int smallestAbsent(vector<int>& nums)
+        {
+            unordered_map <int, int>freq;
+            float avg = 0;
+            int x;
+            for (auto i : nums)
+            {
+                freq[i]++;
+                avg = avg + i;
             }
-            count++;
+            avg = avg / nums.size();
+            x = floor(avg) + 1;
+            if (x <= 0)
+                x = 1;
+            while (true)
+            {
+                if (freq.find(x) == freq.end())
+                    return x;
+                x++;
+            }
         }
-    }
 };
