@@ -3,4 +3,4 @@ A collection of my LeetCode problem solutions, organized by topic and difficulty
 2. .cpp source code file
 
    * The Readme file contains the problem desciption along with sample testcases and examples.
-   * The cpp file contains the solution of that problem in C++, written by me along with its runtime ans 'Beats' % score
+   * The cpp file contains the solution of that problem in C++, written by me along with its runtime and its 'Beats' % score
