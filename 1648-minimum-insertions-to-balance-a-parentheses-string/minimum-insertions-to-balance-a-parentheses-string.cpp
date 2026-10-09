@@ -3,46 +3,23 @@ class Solution
     public:
         int minInsertions(string s)
         {
-            int count = 0;
-            int cl = 0;
-            stack<char> st;
-            for (auto i : s)
+            int count = 0, open = 0, i;
+            for (i = 0; i < s.size(); i++)
             {
-                if (i == '(')
+                if (s[i] == '(')
+                    open++;
+                else
                 {
-                    if (cl == 1)
-                    {
+                    if (i + 1 < s.size() && s[i + 1] == ')')
+                        i++;
+                    else
                         count++;
-                        if (st.empty())
-                            count++;
-                        else
-                            st.pop();
-                        cl = 0;
-                    }
-                    st.push(i);
-                }
-                else
-                {
-                    cl++;
-                    if (cl == 2)
-                    {
-                        if (st.empty())
-                            count++;
-                        else
-                            st.pop();
-                        cl = 0;
-                    }
+                    if (open > 0)
+                        open--;
+                    else
+                        count++;
                 }
             }
-            if (cl == 1)
-            {
-                count++;
-                if (st.empty())
-                    count++;
-                else
-                    st.pop();
-            }
-            count += st.size()*2;
-            return count;
+            return count + open*2;
         }
 };
