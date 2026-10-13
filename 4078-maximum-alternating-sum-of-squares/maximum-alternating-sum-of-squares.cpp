@@ -9,9 +9,9 @@ class Solution
                 nums[i] = abs(nums[i]);
             nth_element(nums.begin(), nums.begin() + half, nums.end());
             for (i = 0; i < half; i++)
-                s = s - (pow(nums[i], 2));
+                s = s - (1LL * nums[i] * nums[i]);
             for (;i < n; i++)
-                s = s + (pow(nums[i], 2));
+                s = s + (1LL * nums[i] * nums[i]);
             return s;
         }
 };
