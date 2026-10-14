@@ -3,25 +3,24 @@ class Solution
 public:
     int largestValsFromLabels(vector<int>& values, vector<int>& labels, int numWanted, int useLimit)
     {
-        unordered_map<int, vector<int>>mp;
-        unordered_map<int, int> lab;
-        int sum = 0, i, current_label;
-        for (i = 0; i < values.size(); i++)
-            mp[values[i]].push_back(labels[i]);
-        sort(values.begin(), values.end(), greater<int>());
-        for (auto i : values)
+        int n,i, sum = 0, val, lab;
+        n = values.size();
+        vector<pair<int,int>>mp(n);
+        unordered_map<int, int> label_count;
+        for (i = 0; i < n; i++)
+            mp[i] = {values[i], labels[i]};
+        sort(mp.rbegin(), mp.rend());
+        for (i = 0; i < n && numWanted > 0; i++)
         {
-            current_label = mp[i].back();
-            mp[i].pop_back();
-            if (lab[current_label] < useLimit)
+            val = mp[i].first;
+            lab = mp[i].second;
+            if (label_count[lab] < useLimit)
             {
-                sum = sum + i;
-                lab[current_label]++;
+                sum = sum + val;
+                label_count[lab]++;
                 numWanted--;
-            }            
-            if (numWanted == 0)
-                return sum;
+            }
         }
-        return sum;           
+        return sum;
     }
 };
