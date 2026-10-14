@@ -3,24 +3,14 @@ class Solution
     public:
         string maxSumOfSquares(int num, int sum)
         {
-            vector <char> ans(num, '0');
             if (sum > 9*num)
                 return "";
-            if (sum < 9)
-            {
-                ans[0] = '0' + sum;
-                string s(ans.begin(), ans.end());
-                return s;
-            }
-            int index = 0;
-            while (sum > 9)
-            {
-                ans[index] = '9';
-                sum = sum - 9;
-                index++;
-            }
-            ans[index] = '0' + sum;
-            string s(ans.begin(), ans.end());
-            return s;
+            string ans(num, '0');
+            int nine = sum / 9, rem = sum % 9, i;
+            for (i = 0; i < nine; i++)
+                ans[i] = '9';
+            if (nine < num)
+                ans[nine] = '0' + rem;
+            return ans;
         }
 };
