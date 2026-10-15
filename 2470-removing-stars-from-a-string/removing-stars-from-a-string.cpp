@@ -9,7 +9,7 @@ class Solution
                 if (i == '*')
                     ans.pop_back();
                 else
-                    ans.push_back(i);
+                    ans+= i;
             }
             return ans;
         }
