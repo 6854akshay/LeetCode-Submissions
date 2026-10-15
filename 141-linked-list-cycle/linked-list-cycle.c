@@ -7,6 +7,8 @@
  */
 bool hasCycle(struct ListNode *head)
 {
+    if (head == NULL || head->next == NULL)
+        return false;
     struct ListNode *a = head;
     struct ListNode *b = head;
     while (b!= NULL && b->next != NULL)
