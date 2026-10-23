@@ -9,6 +9,6 @@ class Solution
                 if (nums[i]!= i)
                     res&= nums[i];
             }
-            return res == -1 ? 0 : res;
+            return max(res, 0);
         }
 };
