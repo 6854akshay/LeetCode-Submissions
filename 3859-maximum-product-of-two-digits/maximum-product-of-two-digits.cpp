@@ -3,12 +3,13 @@ class Solution
     public:
         int maxProduct(int n)
         {
-            int prod = 1;
+            int prod, l;
             if (n < 100)
                 return (n % 10) * (n / 10);
             string num = to_string(n);
             sort(num.begin(), num.end());
-            prod = (num[num.size() - 1] - '0') * (num[num.size() - 2] - '0');
+            l = num.size();
+            prod = (num[l - 1] - '0') * (num[l - 2] - '0');
             return prod;
         }
 };
