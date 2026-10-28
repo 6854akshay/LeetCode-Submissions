@@ -8,10 +8,7 @@ class Solution
             {
                 if (matrix[i][j] == target)
                     return true;
-                else if (matrix[i][j] > target)
-                    j--;
-                else
-                    i++;
+                matrix[i][j] > target ? j-- : i++;
             }
             return false; 
         }
