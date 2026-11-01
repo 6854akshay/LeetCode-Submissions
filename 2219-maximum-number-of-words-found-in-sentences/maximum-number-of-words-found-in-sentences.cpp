@@ -12,8 +12,7 @@ class Solution
                     if (j == ' ')
                         sp_count++;
                 }
-                if (sp_count + 1 > max_len)
-                    max_len = sp_count + 1;
+                max_len = max(max_len, sp_count + 1);
             }
             return max_len;
         }
