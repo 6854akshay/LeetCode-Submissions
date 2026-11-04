@@ -3,13 +3,15 @@ class Solution
     public:
         bool containsNearbyDuplicate(vector<int>& nums, int k)
         {
-            unordered_map<int,int> freq;
-            int i;
-            for (i = 0; i < nums.size(); i++)
+            int n = nums.size(), i;
+            unordered_set<int> seen;
+            for (i = 0; i < n; i++)
             {
-                if (freq.count(nums[i]) && i - freq[nums[i]] <= k)
+                if (i > k)
+                    seen.erase(nums[i - k - 1]);
+                if (seen.count(nums[i]))
                     return true;
-                freq[nums[i]] = i;
+                seen.insert(nums[i]);
             }
             return false;
         }
