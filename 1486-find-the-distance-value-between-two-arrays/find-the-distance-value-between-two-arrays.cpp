@@ -18,7 +18,7 @@ class Solution
                         flag = true;
                         break;
                     }
-                    if (arr2[m] < i)
+                    if (i > arr2[m])
                         l = m + 1;
                     else
                         h = m - 1;
