@@ -3,15 +3,14 @@ class Solution
     public:
         int reverse(int x)
         {
-            int d = 0;
-            long rev = 0;
+            int d = 0, rev = 0, min = INT_MIN, max = INT_MAX;
             while (x != 0)
             {
                 d = x % 10;
-                rev = rev*10 + d;
                 x = x / 10;
-                if (rev > INT_MAX || rev < INT_MIN)
+                if (rev > max/10 || rev < min/10)
                     return 0;
+                rev = rev * 10 + d;
             }
             return rev;
         }
