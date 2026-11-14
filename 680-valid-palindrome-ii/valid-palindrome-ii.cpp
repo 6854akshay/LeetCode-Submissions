@@ -1,7 +1,7 @@
 class Solution
 {
     public:
-        bool checkPalindrome(string s, int i, int j)
+        bool checkPalindrome(string& s, int i, int j)
         {
             while (i < j)
             {
@@ -12,7 +12,7 @@ class Solution
             }
             return true;
         }
-        bool validPalindrome(string s)
+        bool validPalindrome(string& s)
         {
             int i = 0, j = s.size() - 1;
             while (i < j)
