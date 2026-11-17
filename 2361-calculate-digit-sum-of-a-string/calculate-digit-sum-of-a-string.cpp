@@ -9,8 +9,8 @@ class Solution
             {
                 int ans = 0;
                 string sub = s.substr(i, k);
-                for (auto i : sub)
-                    ans+= i - '0';
+                for (auto c : sub)
+                    ans+= c - '0';
                 new_s+=to_string(ans);
                 i+=k;
             }
