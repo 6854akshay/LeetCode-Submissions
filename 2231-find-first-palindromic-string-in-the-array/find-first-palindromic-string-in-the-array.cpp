@@ -12,13 +12,11 @@ class Solution
                 br = false;
                 while (j < k)
                 {
-                    if (i[j] != i[k])
+                    if (i[j++] != i[k--])
                     {
                         br = true;
                         break;
                     }
-                    j++;
-                    k--;
                 }
                 if (!br)
                     return i;
