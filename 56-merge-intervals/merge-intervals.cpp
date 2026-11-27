@@ -5,7 +5,6 @@ class Solution
         {
             sort(intervals.begin(), intervals.end());
             vector<vector<int>> ans;
-            ans.reserve(intervals.size());
             ans.push_back(intervals[0]);
             for (const auto& i : intervals)
             {
